@@ -12,7 +12,8 @@ def DEFAULT_MINECRAFT_USER_NAME_PREFIX = 'awesomeshot5051'
 
 def DEFAULT_CONFIGBUILDER_VERSION = '2.0.1'
 def DEFAULT_MIXIN_ANNOTATION_PROCESSOR_VERSION = '0.8.4'
-
+ext.enable_modrinth_upload = false
+ext.curseforge_upload = false
 // Gradle version checks
 def gradle_version = VersionNumber.parse(getProject().getGradle().getGradleVersion())
 // Check for min Gradle version
