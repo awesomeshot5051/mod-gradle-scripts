@@ -61,7 +61,7 @@ ext.is_neoforge = mod_loader.equalsIgnoreCase(NEOFORGE_MOD_LOADER)
 
 // Neoforge specific variables
 if (is_neoforge) {
-    checkProperty('neoforge_version')
+    checkProperty('neo_version')
 }
 
 
@@ -242,7 +242,7 @@ repositories {
 dependencies {
 
     if (is_neoforge) {
-        implementation "net.neoforged:neoforge:${neoforge_version}"
+        implementation "net.neoforged:neoforge:${neo_version}"
     }
 
 
