@@ -213,16 +213,16 @@ if (is_neoforge) {
 
 
 // Dependency management
-repositories {
-    maven { url = 'https://maven.maxhenkel.de/repository/public' }
-    maven {
-        url = 'https://api.modrinth.com/maven'
-        content {
-            includeGroup "maven.modrinth"
-        }
-    }
-    mavenLocal()
-}
+//repositories {
+//    maven { url = 'https://maven.maxhenkel.de/repository/public' }
+//    maven {
+//        url = 'https://api.modrinth.com/maven'
+//        content {
+//            includeGroup "maven.modrinth"
+//        }
+//    }
+//    mavenLocal()
+//}
 
 dependencies {
 
@@ -312,7 +312,7 @@ jar {
 if (use_shadow) {
     shadowJar {
         configurations = [project.configurations.shadow]
-            archiveClassifier = ''
+        archiveClassifier = ''
         if (enable_configbuilder) {
             relocate 'de.maxhenkel.configbuilder', "com.awesomeshot5051.${mod_id}.configbuilder"
         }
