@@ -69,60 +69,6 @@ if (is_neoforge) {
     ext.enable_accesstransformers = getOrDefault('enable_accesstransformers', false, it -> it.toBoolean())
 }
 
-
-//// Upload
-//ext.upload_release_type = getOrDefault('upload_release_type', DEFAULT_RELEASE_TYPE)
-//ext.upload_recommended = getOrDefault('upload_recommended', false, it -> it.toBoolean())
-//// CurseForge upload
-//ext.enable_curseforge_upload = getOrDefault('enable_curseforge_upload', true, it -> it.toBoolean())
-//if (enable_curseforge_upload) {
-//    //checkPlugin('com.awesomeshot5051.cursegradle')
-//    checkProperty('curseforge_upload_id')
-//    ext.curseforge_upload_include_prefix = getOrDefault('curseforge_upload_include_prefix', true, it -> it.toBoolean())
-//    ext.curseforge_upload_minecraft_versions = getOrDefault('curseforge_upload_minecraft_versions', [], it -> stringToStringList(it))
-//    ext.curseforge_upload_optional_dependencies = getOrDefault('curseforge_upload_optional_dependencies', [], it -> stringToStringList(it))
-//    ext.curseforge_upload_required_dependencies = getOrDefault('curseforge_upload_required_dependencies', [], it -> stringToStringList(it))
-//}
-// Modrinth upload
-//ext.enable_modrinth_upload = getOrDefault('enable_modrinth_upload', true, it -> it.toBoolean())
-//if (enable_modrinth_upload) {
-//    //checkPlugin('com.modrinth.minotaur')
-//    checkProperty('modrinth_upload_id')
-//    ext.modrinth_upload_include_prefix = getOrDefault('modrinth_upload_include_prefix', true, it -> it.toBoolean())
-//    // This property is optional and falls back to the selected loader
-//    ext.modrinth_upload_supported_loaders = getOrDefault('modrinth_upload_supported_loaders', [], it -> stringToStringList(it))
-//    // This property is optional and falls back to the selected Minecraft version
-//    ext.modrinth_upload_supported_game_versions = getOrDefault('modrinth_upload_supported_game_versions', [], it -> stringToStringList(it))
-//    ext.modrinth_upload_optional_dependencies = getOrDefault('modrinth_upload_optional_dependencies', [], it -> stringToStringList(it))
-//    ext.modrinth_upload_required_dependencies = getOrDefault('modrinth_upload_required_dependencies', [], it -> stringToStringList(it))
-//    ext.modrinth_token = getOrDefault('modrinth_token', System.env.MODRINTH_TOKEN ?: '')
-//    if (modrinth_token == null || modrinth_token.isEmpty()) {
-//        project.logger.error('Missing environment variable MODRINTH_TOKEN')
-//    }
-//}
-//// Hangar upload
-//ext.enable_hangar_upload = getOrDefault('enable_hangar_upload', false, it -> it.toBoolean())
-//if (enable_hangar_upload) {
-//    checkPlugin('io.papermc.hangar-publish-plugin')
-//    checkProperty('hangar_upload_id')
-//    ext.hangar_upload_minecraft_versions = getOrDefault('hangar_upload_minecraft_versions', [], it -> stringToStringList(it))
-//    ext.hangar_upload_supported_loaders = getOrDefault('hangar_upload_supported_loaders', ['PAPER'], it -> stringToStringList(it))
-//    ext.hangar_upload_dependencies = getOrDefault('hangar_upload_dependencies', [], it -> stringToStringList(it))
-//    ext.hangar_api_key = getOrDefault('hangar_api_key', System.env.HANGAR_API_KEY ?: '')
-//    if (hangar_api_key == null || hangar_api_key.isEmpty()) {
-//        project.logger.error('Missing environment variable HANGAR_API_KEY')
-//    }
-//}
-// Mod update
-//ext.enable_mod_update = getOrDefault('enable_mod_update', true, it -> it.toBoolean())
-//if (enable_mod_update) {
-//    checkPlugin('mod-update')
-//    ext.mod_update_api_key = getOrDefault('mod_update_api_key', System.env.MOD_UPDATE_API_KEY ?: '')
-//    if (mod_update_api_key == null || mod_update_api_key.isEmpty()) {
-//        project.logger.error('Missing environment variable MOD_UPDATE_API_KEY')
-//    }
-//}
-
 // Mark the evaluation depending on all included projects, so its evaluated after them
 included_projects.forEach({
     evaluationDependsOn(it)
