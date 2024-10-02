@@ -114,14 +114,14 @@ if (is_neoforge) {
 //    }
 //}
 // Mod update
-ext.enable_mod_update = getOrDefault('enable_mod_update', true, it -> it.toBoolean())
-if (enable_mod_update) {
-    checkPlugin('mod-update')
-    ext.mod_update_api_key = getOrDefault('mod_update_api_key', System.env.MOD_UPDATE_API_KEY ?: '')
-    if (mod_update_api_key == null || mod_update_api_key.isEmpty()) {
-        project.logger.error('Missing environment variable MOD_UPDATE_API_KEY')
-    }
-}
+//ext.enable_mod_update = getOrDefault('enable_mod_update', true, it -> it.toBoolean())
+//if (enable_mod_update) {
+//    checkPlugin('mod-update')
+//    ext.mod_update_api_key = getOrDefault('mod_update_api_key', System.env.MOD_UPDATE_API_KEY ?: '')
+//    if (mod_update_api_key == null || mod_update_api_key.isEmpty()) {
+//        project.logger.error('Missing environment variable MOD_UPDATE_API_KEY')
+//    }
+//}
 
 // Mark the evaluation depending on all included projects, so its evaluated after them
 included_projects.forEach({
