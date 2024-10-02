@@ -130,27 +130,12 @@ included_projects.forEach({
 })
 
 // Checking if mandatory plugins exist
-if (is_fabric) {
-    checkPlugin('fabric-loom')
-}
-if (is_quilt) {
-    checkPlugin('org.quiltmc.loom')
-}
 if (is_neoforge) {
     // Neoforge gradle
     checkPlugin('net.neoforged.gradle.userdev')
     // Neoforge mixins
     checkPlugin('net.neoforged.gradle.mixin')
 }
-if (is_forge) {
-    // Forge gradle
-    checkPlugin('net.minecraftforge.gradle')
-    if (include_mixins) {
-        // Mixin
-        checkPlugin('org.spongepowered.mixin')
-    }
-}
-
 if (use_shadow) {
     checkPlugin('com.github.johnrengelman.shadow')
 }
@@ -328,13 +313,9 @@ jar {
 if (use_shadow) {
     shadowJar {
         configurations = [project.configurations.shadow]
-        if (is_fabric || is_quilt) {
-            archiveClassifier = 'shadow-dev'
-        } else {
             archiveClassifier = ''
-        }
         if (enable_configbuilder) {
-            relocate 'de.maxhenkel.configbuilder', "de.maxhenkel.${mod_id}.configbuilder"
+            relocate 'de.maxhenkel.configbuilder', "com.awesomeshot5051.${mod_id}.configbuilder"
         }
     }
 }
@@ -398,20 +379,8 @@ if (enable_curseforge_upload) {
             curse_game_versions.forEach {
                 addGameVersion it
             }
-            if (is_fabric) {
-                addGameVersion 'Fabric'
-                if (add_quilt_supported_tag) {
-                    addGameVersion 'Quilt'
-                }
-            }
-            if (is_quilt) {
-                addGameVersion 'Quilt'
-            }
             if (is_neoforge) {
                 addGameVersion 'NeoForge'
-            }
-            if (is_forge) {
-                addGameVersion 'Forge'
             }
             addGameVersion "Java ${java_version}"
             mainArtifact(getUploadArtefact()) {
@@ -473,9 +442,6 @@ if (enable_modrinth_upload) {
             loaders = modrinth_upload_supported_loaders
         } else {
             loaders = [mod_loader]
-        }
-        if (is_fabric && add_quilt_supported_tag) {
-            loaders.add('quilt')
         }
         dependencies {
             modrinth_upload_optional_dependencies.forEach({
@@ -548,5 +514,5 @@ def getChangelogFile() {
 }
 
 def getUploadArtefact() {
-    return (is_fabric || is_quilt) ? remapJar : (use_shadow ? shadowJar : jar)
+    return (use_shadow ? shadowJar : jar)
 }
