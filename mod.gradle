@@ -134,10 +134,9 @@ if (is_neoforge) {
     // Neoforge gradle
     checkPlugin('net.neoforged.gradle.moddev')
     // Neoforge mixins
-    checkPlugin('net.neoforged.gradle.mixin')
 }
 if (use_shadow) {
-    checkPlugin('com.github.johnrengelman.shadow')
+    checkPlugin('com.gradleup.shadow')
 }
 
 apply plugin: 'java'
