@@ -132,7 +132,7 @@ included_projects.forEach({
 // Checking if mandatory plugins exist
 if (is_neoforge) {
     // Neoforge gradle
-    checkPlugin('net.neoforged.gradle.userdev')
+    checkPlugin('net.neoforged.gradle.moddev')
     // Neoforge mixins
     checkPlugin('net.neoforged.gradle.mixin')
 }
